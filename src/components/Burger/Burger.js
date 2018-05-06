@@ -3,7 +3,11 @@ import React from 'react';
 import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
+// 透過 withRouter 讓 Routing 的參數們可以傳遞到此。例如 match...
+import {withRouter} from 'react-router-dom';
+
 const burger = ( props ) => {
+    console.log(props);
     let transformedIngredients = Object.keys( props.ingredients )
         .map( igKey => {
             return [...Array( props.ingredients[igKey] )].map( ( _, i ) => {
@@ -25,4 +29,4 @@ const burger = ( props ) => {
     );
 };
 
-export default burger;
+export default withRouter(burger);

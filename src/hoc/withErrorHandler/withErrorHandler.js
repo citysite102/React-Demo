@@ -21,8 +21,8 @@ const withErrorHandler = ( WrappedComponent, axios ) => {
 
         componentWillUnmount() {
             // 清除掉不用的 Interceptor，不然會一直加上去！
-            this.reqInterceptor.request.eject(this.reqInterceptor);
-            this.resInterceptor.response.eject(this.resInterceptor);
+            axios.interceptors.request.eject( this.reqInterceptor );
+            axios.interceptors.response.eject( this.resInterceptor );
         }
 
         errorConfirmedHandler = () => {
